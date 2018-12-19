@@ -108,6 +108,10 @@ bool File::DeleteMatchingFiles(const char* pattern) {
  }
  return all_deleted;
 }
+#elif ANDROID_BUILD
+bool File::DeleteMatchingFiles(const char* pattern) {
+ return false;
+}
 #else
 bool File::DeleteMatchingFiles(const char* pattern) {
   glob_t pglob;

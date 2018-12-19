@@ -102,6 +102,9 @@ case "${host_os}" in
     powerpc-*-darwin*)
         OPENCL_LIBS=""
         ;;
+    *android*)
+        AM_CONDITIONAL([ADD_RT], false)
+        ;;
     *)
         # default
         AM_CONDITIONAL([ADD_RT], true)
@@ -297,6 +300,7 @@ fi
 # ----------------------------------------
 
 # Check Endianness. If Big Endian, this will define WORDS_BIGENDIAN
+ac_cv_c_bigendian=no 
 AC_C_BIGENDIAN
 
 
