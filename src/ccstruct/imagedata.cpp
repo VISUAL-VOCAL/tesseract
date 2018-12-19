@@ -326,7 +326,7 @@ void ImageData::AddBoxes(const GenericVector<TBOX>& boxes,
 void ImageData::SetPixInternal(Pix* pix, GenericVector<char>* image_data) {
   l_uint8* data;
   size_t size;
-  pixWriteMem(&data, &size, pix, IFF_PNG);
+  pixWriteMem(&data, &size, pix, IFF_SPIX);
   pixDestroy(&pix);
   image_data->resize_no_init(size);
   memcpy(&(*image_data)[0], data, size);
